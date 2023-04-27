@@ -79,11 +79,12 @@
 .content {
   margin: auto;
   display: flex;
-  height: 100%;
-  align-items: center;
-  margin-top: -4rem;
+  height: calc(100vh - 120px);
+  width: 100%;
+  /* align-items: center; */
+  /* margin-top: 120px; */
 }
 .content > div {
-  width: 100%;
+  width: 65%;
   min-width: 75vh;
 }

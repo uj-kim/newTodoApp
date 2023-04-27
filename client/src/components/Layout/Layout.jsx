@@ -9,6 +9,7 @@ const Layout = () => {
   const { pathname } = useLocation();
   return (
     <div className={css.container}>
+      {pathname === "/" && <Navigate to="/main" />}
       <div className={css.dashboard}>
         <div className={css.topBaseGradients}>
           <div className="circle small"></div>
