@@ -1,0 +1,55 @@
+.calendar-container > div {
+  width: 90%;
+  padding: 0 7rem 0 5rem;
+  max-width: 1100px;
+}
+.fc .fc-toolbar-title {
+  font-size: 1.25em;
+  margin: 0;
+}
+.fc .fc-button {
+  font-size: 0.8em;
+}
+.fc-event {
+  background-color: rgb(38, 51, 63) !important;
+}
+/* .fc .fc-daygrid-day {
+  min-height: 3rem;
+  height: 3rem;
+} */
+.fc .fc-timegrid-slot {
+  height: 2.5em !important;
+}
+.fc table {
+  font-size: 0.9em;
+}
+td {
+  border: 1px solid rgb(189, 186, 186) !important;
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+  background-color: transparent;
+  border: none;
+  color: yellow;
+}
+.fc .fc-button-primary {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.fc .fc-button-primary:hover,
+.fc .fc-button-primary {
+  background-color: transparent;
+  border: none;
+  color: lemonchiffon;
+}
+
+.fc .fc-button-primary:disabled {
+  background-color: transparent;
+  border: none;
+  color: rgb(255, 219, 40);
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active:focus,
+.fc .fc-button-primary:not(:disabled):active:focus {
+  box-shadow: none;
+}
