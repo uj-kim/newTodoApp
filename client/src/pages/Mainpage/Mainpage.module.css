@@ -1,0 +1,14 @@
+.container {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  margin: 0 2.5rem;
+}
+.calendar {
+  width: 55vw;
+  /* margin: 0 auto; */
+}
+.todo {
+  width: 40vw;
+  /* margin: 0 2.5rem; */
+}
