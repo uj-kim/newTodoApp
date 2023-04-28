@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Calendar from "../../components/Calendar/Calendar";
-import Todo from "../../components/Todo/Todo";
-
+import css from "./Mainpage.module.css";
+import TodoList from "../../components/Todo/TodoList";
 const Mainpage = () => {
   return (
-    <div>
-      <Calendar style={{ flex: 1 }} />
-      <Todo style={{ flex: 1 }} />
+    <div className={css.container}>
+      <div className={css.calendar}>
+        <Calendar />
+      </div>
+      <div className={css.todo}>
+        <TodoList />
+      </div>
     </div>
   );
 };
