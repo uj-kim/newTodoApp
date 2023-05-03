@@ -26,9 +26,9 @@ const TodoList = () => {
   return (
     <div className="todo-container">
       <div className="heading">
-        <h1>To-Do List</h1>
+        <h2>To-Do List</h2>
       </div>
-      <label htmlFor="todo">~오늘 해야 할 일 ~</label>
+      {/* <label htmlFor="todo">~오늘 해야 할 일 ~</label> */}
       <AddTodo addItem={addItem} />
       <div className="written-todos">🚀 {todoItems.length} Todos</div>
       {todoItems.length > 0 ? (
