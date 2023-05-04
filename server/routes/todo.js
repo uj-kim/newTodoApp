@@ -4,6 +4,8 @@ const { Op } = require("sequelize");
 const moment = require('moment');
 const router = express.Router();
 
+
+// todoList 불러오기
 router.get("/todos", async(req, res)=>{
     try{
         const selectedDate = moment(req.query.date).startOf('day').format('YYYY-MM-DD HH:mm:ss');
@@ -17,7 +19,7 @@ router.get("/todos", async(req, res)=>{
             }
           }
         });
-      console.log(data);
+    //   console.log(data);
       res.send(data);
     } catch(err){
       console.log(err);
@@ -25,6 +27,41 @@ router.get("/todos", async(req, res)=>{
     }
   });
 
+//새 todo 추가하기(add new Todo)
+router.post("/todo", async(req, res)=>{
+    console.log(req.body.newItem);
+    try{
+        let newTodo = await Todo.create({
+            username:"TEST1",
+            title: req.body.newItem.title,
+            startdate: req.body.newItem.date,
+            enddate:req.body.newItem.date,
+        });
+        res.send(newTodo);
+    }catch(err){
+        console.log(err);
+        res.status(500).send(err)
+    }
+})
+
+
+//todo 수정하기
+router.patch("/todo/:todoId", async(req,res)=>{
+    try{
+        const [editTodo] = await Todo.update({
+            title:req.body.title,
+            done: req.body.done,
+        },{
+            where:{
+                id:req.params.todoId,
+            },
+        });
+        if(!editTodo){
+            return res.send(false);
+        }
+        res.send(true);
+    }catch(err){res.send(err)}
+});
 
 
 

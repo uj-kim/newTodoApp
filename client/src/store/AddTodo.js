@@ -1,35 +1,45 @@
 import { useState } from "react";
 
-const AddTodo = ({ addItem }) => {
-  const [todoItem, setTodoItem] = useState({ title: "" });
-  console.log(todoItem);
-  const onButtonClick = () => {
-    if (todoItem.title.trim().length === 0) {
-      return;
+const AddTodo = (props) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (inputValue !== '') {
+      const newItem = {
+        date: props.selectedDate, // 선택한 날짜 정보
+        title: inputValue, // 입력한 todo 내용
+      };
+      props.addItem(newItem);
+      setInputValue('');
     }
-    //props로 받아온 addItem 함수 실행
-    addItem(todoItem); //{title: 'input 입력값'}
-    setTodoItem({ title: "" }); //input 초기화
   };
   const onEnterKey = (e) => {
     if (e.key == "Enter") {
-      onButtonClick();
+      handleSubmit();
     }
   };
   return (
     <div className="AddTodo">
+       <form onSubmit={handleSubmit}>
       <input
         id="addbox"
         type="text"
         placeholder="어떤 일을 하면 좋을까요?"
-        value={todoItem.title}
-        onChange={(e) => setTodoItem({ title: e.target.value })}
+        value={inputValue}
+        onChange={handleInputChange}
         onKeyPress={onEnterKey}
         required
       />
-      <button onClick={onButtonClick}>
+      {/* <button onClick={onButtonClick}> */}
+      <button type="submit">
         <span>ADD</span>
       </button>
+      </form>
     </div>
   );
 };
