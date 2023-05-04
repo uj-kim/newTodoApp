@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+import moment from "moment";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -21,22 +23,31 @@ const Calendar = () => {
     await Promise.resolve(setCurrentEvents(events));
   };
 
-  const handleDateSelect = (selectInfo) => {
-    let title = prompt("Please enter a title for the event");
+  const handleDateSelect = async (selectInfo) => {
+    // let title = prompt("Please enter a title for the event");
     let calendarApi = selectInfo.view.calendar;
 
-    calendarApi.unselect();
-
-    if (title) {
-      calendarApi.addEvent({
-        id: createEventId(),
-        title,
-        start: selectInfo.start,
-        end: selectInfo.end,
-        allDay: selectInfo.allDay,
-      });
-    }
+    // calendarApi.unselect();
+    console.log(calendarApi);
+    // if (title) {
+    //   calendarApi.addEvent({
+    //     id: createEventId(),
+    //     title,
+    //     start: selectInfo.start,
+    //     end: selectInfo.end,
+    //     allDay: selectInfo.allDay,
+    //   });
+    // }
     console.log(selectInfo);
+    console.log(selectInfo.start);
+    const selectedDate = moment(selectInfo.start).format('YYYY-MM-DD');
+    await axios.get("http://localhost:8080/todos", {
+      params: {
+        date: selectedDate,
+      }
+    }).then((response)=>{
+      console.log(response.data);
+    })
   };
 
   const handleEventDelete = (clickInfo) => {
@@ -66,7 +77,7 @@ const Calendar = () => {
           initialEvents={currentEvents}
           eventsSet={handleEvents}
           select={handleDateSelect}
-          eventClick={handleEventDelete}
+          // eventClick={handleEventDelete}
         />
       </div>
     </div>

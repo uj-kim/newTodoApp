@@ -13,7 +13,7 @@ const sequelize = new Sequelize(
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.TOdo = require("./Todo")(sequelize, Sequelize);
+db.Todo = require("./Todo")(sequelize, Sequelize);
 
 
 module.exports = db;
