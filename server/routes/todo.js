@@ -5,7 +5,7 @@ const moment = require('moment');
 const router = express.Router();
 
 
-// todoList 불러오기
+// todoList 불러오기(get todo)
 router.get("/todos", async(req, res)=>{
     try{
         const selectedDate = moment(req.query.date).startOf('day').format('YYYY-MM-DD HH:mm:ss');
@@ -31,7 +31,7 @@ router.get("/todos", async(req, res)=>{
 router.post("/todo", async(req, res)=>{
     console.log(req.body.newItem);
     try{
-        let newTodo = await Todo.create({
+        const newTodo = await Todo.create({
             username:"TEST1",
             title: req.body.newItem.title,
             startdate: req.body.newItem.date,
@@ -45,7 +45,7 @@ router.post("/todo", async(req, res)=>{
 })
 
 
-//todo 수정하기
+//todo 수정하기(edit todo)
 router.patch("/todo/:todoId", async(req,res)=>{
     try{
         const [editTodo] = await Todo.update({
@@ -60,9 +60,25 @@ router.patch("/todo/:todoId", async(req,res)=>{
             return res.send(false);
         }
         res.send(true);
-    }catch(err){res.send(err)}
+    }catch(err){res.status(500).send(err)}
 });
 
+//todo 삭제(delete todo)
+router.delete("/todo/:todoId", async(req, res)=>{
+    try{
+        const delTodo = await Todo.destroy({
+            where: {
+                id: req.params.todoId,
+              },
+        });
+        if(!delTodo){
+            return res.send(false);
+        }
+        res.send(true);
+    }catch(err){
+        res.status(500).send(err);
+    }
+})
 
 
 
