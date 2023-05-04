@@ -3,8 +3,10 @@ import AddTodo from "../../store/AddTodo";
 import Todo from "../../store/Todo";
 import "./TodoList.css";
 
-const TodoList = () => {
-  const [todoItems, setTodoItems] = useState([]);
+const TodoList = (props) => {
+  // const [todoItems, setTodoItems] = useState([]);
+  const todoItems = props.todoItems;
+  const setTodoItems = props.setTodoItems;
   const todoId = useRef(4);
 
   //todo 추가

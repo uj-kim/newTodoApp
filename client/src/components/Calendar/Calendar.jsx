@@ -8,7 +8,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import "./Calendar.css";
 import useCalendar from "../../store/Calendar";
 
-const Calendar = () => {
+const Calendar = (props) => {
   const { currentEvents, setCurrentEvents } = useCalendar();
 
   //   calendar Events
@@ -22,7 +22,7 @@ const Calendar = () => {
   const handleEvents = async (events) => {
     await Promise.resolve(setCurrentEvents(events));
   };
-
+/*
   const handleDateSelect = async (selectInfo) => {
     // let title = prompt("Please enter a title for the event");
     let calendarApi = selectInfo.view.calendar;
@@ -49,7 +49,7 @@ const Calendar = () => {
       console.log(response.data);
     })
   };
-
+*/
   const handleEventDelete = (clickInfo) => {
     if (window.confirm("Are you sure?")) {
       clickInfo.event.remove();
@@ -76,7 +76,7 @@ const Calendar = () => {
           nowIndicator={true}
           initialEvents={currentEvents}
           eventsSet={handleEvents}
-          select={handleDateSelect}
+          select={props.handleDateSelect}
           // eventClick={handleEventDelete}
         />
       </div>
