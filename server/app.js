@@ -3,12 +3,12 @@ const app = express();
 const PORT = 8080;
 const todoRouter = require("./routes/todo");
 const cors = require("cors");
-
 const corsConfig = {
     origin : "http://localhost:3000",
     credentials: true,
 }
-
+const moment = require('moment-timezone');
+moment.tz.setDefault('Asia/Seoul');
 app.use(cors(corsConfig));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
