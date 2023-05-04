@@ -11,23 +11,6 @@ const Mainpage = () => {
   const [todoItems, setTodoItems] = useState([]);
   const todoId = useRef(4);
   const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
-/*
-  const handleDateSelect = async (selectInfo) => {
-    // let title = prompt("Please enter a title for the event");
-    console.log(selectInfo);
-    console.log(selectInfo.start);
-    // const selectedDate = moment(selectInfo.start).format('YYYY-MM-DD');
-    await axios.get("http://localhost:8080/todos", {
-      params: {
-        date: selectedDate,
-      }
-    }).then((response)=>{
-      setTodoItems(response.data);
-      console.log(response.data);
-    })
-
-  };
-*/
 
 useEffect(()=>{
   const getTodoList = async () => {
@@ -51,13 +34,7 @@ const handleDateSelect = (selectInfo) => {
       const response = await axios.post("http://localhost:8080/todo", {newItem});
       setTodoItems([...todoItems, response.data]);
     }
-    // const addItem = async(selectInfo) => {
-      // newItem.id = todoId.current++;
-      // newItem.done = false;
-      // const response = await axios.post("http://localhost:8080/todo", newItem);
-      // setTodoItems([...todoItems, response.data]);
-      // console.log(selectInfo);
-    // };
+ 
     //todo 수정
     const updateItem = async(targetItem) => {
       console.log(targetItem);
@@ -65,7 +42,8 @@ const handleDateSelect = (selectInfo) => {
     };
   
     //todo 삭제
-    const delItem = (targetItem) => {
+    const delItem = async(targetItem) => {
+      await axios.delete(`http://localhost:8080/todo/${targetItem.id}`);
       const result = todoItems.filter((item) => item.id !== targetItem.id);
       setTodoItems(result);
     };
