@@ -20,7 +20,7 @@ const AddTodo = (props) => {
   };
   const onEnterKey = (e) => {
     if (e.key == "Enter") {
-      handleSubmit();
+      handleSubmit(e);
     }
   };
   return (

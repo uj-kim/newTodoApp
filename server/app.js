@@ -7,8 +7,6 @@ const corsConfig = {
     origin : "http://localhost:3000",
     credentials: true,
 }
-const moment = require('moment-timezone');
-moment.tz.setDefault('Asia/Seoul');
 app.use(cors(corsConfig));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());

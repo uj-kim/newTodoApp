@@ -9,7 +9,6 @@ import axios from "axios";
 import moment from "moment";
 const Mainpage = () => {
   const [todoItems, setTodoItems] = useState([]);
-  const todoId = useRef(4);
   const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
 
 useEffect(()=>{
@@ -34,7 +33,6 @@ const handleDateSelect = (selectInfo) => {
       const response = await axios.post("http://localhost:8080/todo", {newItem});
       setTodoItems([...todoItems, response.data]);
     }
- 
     //todo 수정
     const updateItem = async(targetItem) => {
       console.log(targetItem);
