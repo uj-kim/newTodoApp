@@ -6,10 +6,24 @@
 }
 .calendar {
   width: 55vw;
-  /* margin: 0 auto; */
+  margin: auto 0;
 }
 .todo {
   width: 40vw;
+  /* margin: auto 0; */
+
   /* margin: 0 auto; */
   /* margin: 0 2.5rem; */
+}
+@media screen and (max-width: 1220px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+
+    overflow-y: scroll;
+  }
+  .todo{
+    margin-top: 20px;
+    width: 62vw;
+  }
 }
