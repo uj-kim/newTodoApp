@@ -10,10 +10,8 @@
 }
 .todo {
   width: 40vw;
-  /* margin: auto 0; */
+  margin: auto 0;
 
-  /* margin: 0 auto; */
-  /* margin: 0 2.5rem; */
 }
 @media screen and (max-width: 1220px) {
   .container {

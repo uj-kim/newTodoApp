@@ -7,6 +7,7 @@ import Todo from "../../store/Todo";
 import "../../components/Todo/TodoList.css";
 import axios from "axios";
 import moment from "moment";
+import Memo from "../../components/Memo/Memo";
 const Mainpage = () => {
   const [todoItems, setTodoItems] = useState([]);
   const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
@@ -75,6 +76,7 @@ const handleDateSelect = (selectInfo) => {
         <p>할 일이 없습니다.</p>
       )}
     </div>
+      <Memo />
       </div>
     </div>
   );
