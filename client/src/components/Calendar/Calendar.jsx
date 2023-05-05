@@ -10,8 +10,6 @@ import useCalendar from "../../store/Calendar";
 
 const Calendar = (props) => {
   const [events, setEvents] = useState([props.todoItems, props.setTodoItems]);
-  // const events = props.todoItems;
-  // const setEvents = props.setTodoItems;
 
 //todo 있는 날짜 표시
 useEffect(() => {
@@ -35,7 +33,7 @@ useEffect(() => {
 
   getTodoList();
 
-}, [events]);
+}, [props.todoItems]);
 
   return (
     <div className="calendar-container">
