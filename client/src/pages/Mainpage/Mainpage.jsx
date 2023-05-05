@@ -48,7 +48,7 @@ const handleDateSelect = (selectInfo) => {
   return (
     <div className={css.container}>
       <div className={css.calendar}>
-        <Calendar handleDateSelect={handleDateSelect}/>
+        <Calendar handleDateSelect={handleDateSelect} todoItems={todoItems} setTodoItems={setTodoItems}/>
       </div>
       <div className={css.todo}>
         {/* <TodoList todoItems={todoItems} setTodoItems={setTodoItems} />

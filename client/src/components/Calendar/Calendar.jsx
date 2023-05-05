@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment";
 import FullCalendar from "@fullcalendar/react";
@@ -9,75 +9,54 @@ import "./Calendar.css";
 import useCalendar from "../../store/Calendar";
 
 const Calendar = (props) => {
-  const { currentEvents, setCurrentEvents } = useCalendar();
+  const [events, setEvents] = useState([props.todoItems, props.setTodoItems]);
+  // const events = props.todoItems;
+  // const setEvents = props.setTodoItems;
 
-  //   calendar Events
-  let eventGuid = 0;
-  //   let todayStr = moment().format("YYYY-MM-DD");
-
-  function createEventId() {
-    return String(eventGuid++);
+//todo 있는 날짜 표시
+useEffect(() => {
+  const getTodoList = async () => {
+    const response = await axios.get("http://localhost:8080/alltodos");
+    const todos = response.data;
+    const newEvents = todos.map((todo) => 
+      {
+        if(!todo.done){
+          return{
+            title: todo.title,
+            start: todo.startdate,
+            end: todo.enddate,
+            done: todo.done,
+          }
+        }
+        return null;
+    }).filter(event => event !== null);
+    setEvents(newEvents);
   }
 
-  const handleEvents = async (events) => {
-    await Promise.resolve(setCurrentEvents(events));
-  };
-/*
-  const handleDateSelect = async (selectInfo) => {
-    // let title = prompt("Please enter a title for the event");
-    let calendarApi = selectInfo.view.calendar;
+  getTodoList();
 
-    // calendarApi.unselect();
-    console.log(calendarApi);
-    // if (title) {
-    //   calendarApi.addEvent({
-    //     id: createEventId(),
-    //     title,
-    //     start: selectInfo.start,
-    //     end: selectInfo.end,
-    //     allDay: selectInfo.allDay,
-    //   });
-    // }
-    console.log(selectInfo);
-    console.log(selectInfo.start);
-    const selectedDate = moment(selectInfo.start).format('YYYY-MM-DD');
-    await axios.get("http://localhost:8080/todos", {
-      params: {
-        date: selectedDate,
-      }
-    }).then((response)=>{
-      console.log(response.data);
-    })
-  };
-*/
-  const handleEventDelete = (clickInfo) => {
-    if (window.confirm("Are you sure?")) {
-      clickInfo.event.remove();
-    }
-  };
+}, [events]);
+
   return (
     <div className="calendar-container">
       <div>
-        <FullCalendar
-          plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
+      <FullCalendar
+          plugins={[dayGridPlugin, interactionPlugin]}
           headerToolbar={{
-            left: "prev,next today",
+            left: "prev,next",
             center: "title",
-            right: "dayGridMonth,timeGridWeek,timeGridDay",
+            right: "today",
           }}
-          allDaySlot={false}
-          initialView="timeGridWeek"
+          initialView="dayGridMonth"
           slotDuration={"01:00:00"}
-          editable={true}
+          editable={false}
           selectable={true}
           selectMirror={true}
           dayMaxEvents={true}
           weekends={true}
           nowIndicator={true}
-          initialEvents={currentEvents}
-          eventsSet={handleEvents}
+          events={events}
           select={props.handleDateSelect}
-          // eventClick={handleEventDelete}
         />
       </div>
     </div>

@@ -26,6 +26,14 @@ router.get("/todos", async(req, res)=>{
       res.status(500).send(err); 
     }
   });
+  router.get("/alltodos", async(req, res)=>{
+    try{
+    const data = await Todo.findAll();
+    res.send(data);
+    } catch(err){
+        res.status(500).send(err);
+    }
+  })
 
 //새 todo 추가하기(add new Todo)
 router.post("/todo", async(req, res)=>{
