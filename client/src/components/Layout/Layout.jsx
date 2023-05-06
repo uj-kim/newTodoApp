@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import css from "./Layout.module.css";
 import { BiSearch } from "react-icons/bi";
+import Bookmark from "../Bookmark/Bookmark";
 
 const Layout = () => {
   const { pathname } = useLocation();
@@ -27,8 +28,9 @@ const Layout = () => {
           </div>
           {/* 검색창(검색기능) */}
           <div className={css.searchBar}>
-            <BiSearch size={20} />
-            <input type="text" placeholder="Search" />
+            {/* <BiSearch size={20} />
+            <input type="text" placeholder="Search" /> */}
+            <Bookmark />
           </div>
           {/* 날짜 */}
           <span>{moment().format("YYYY년 MMM Do, dddd")}</span>
