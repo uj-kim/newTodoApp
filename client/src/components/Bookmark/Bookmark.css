@@ -8,26 +8,39 @@
     list-style-type: none;
     flex-direction: row;
 }
-.bookmark-container li > button{
-    padding: 5px; 
+
+.bookmark-container li > button:nth-child(1) {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     border: none;
     background-color: transparent;
-    overflow-x: hidden;
-    margin: 0 15px;
+    margin: 5px 15px 10px 15px;
     box-shadow: 0px 0px 10px 2px lemonchiffon;
     text-shadow: 0px 0px 10px lemonchiffon;
-    transition: all 0.3s ease;
-}
-.bookmark-container li > button:hover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .bookmark-container li > button:nth-child(1):hover {
     box-shadow: 0px 0px 15px 4px lemonchiffon;
     text-shadow: 0px 0px 20px lemonchiffon;
   }
-  .bookmark-container li > button:hover a {
+
+.bookmark-container li > button:nth-child(1):hover a {
     color: rgb(255,220,40);
 
+  }
+.bookmark-container li > button:nth-child(2){
+     opacity: 0;
+}
+.bookmark-container li:hover button:nth-child(2) {
+    display: flex;
+    margin: 8px auto;
+    color: white;
+    font-size: 5pt;
+    opacity: 1;
   }
 .bookmark-container a{
     text-decoration: none;
@@ -54,9 +67,8 @@
 .bookmark-container p{
     color: white;
     text-shadow: 0px 0px 10px white;
-
     margin: 0;
-    font-size: small;
+    font-size: 5pt;
 }
 .modal-backdrop{
     position: fixed;
