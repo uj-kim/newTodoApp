@@ -3,6 +3,61 @@
     flex-direction: row;
     position: relative;
 }
+.bookmark-container ul{
+    display: flex;
+    list-style-type: none;
+    flex-direction: row;
+}
+.bookmark-container li > button{
+    padding: 5px; 
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    overflow-x: hidden;
+    margin: 0 15px;
+    box-shadow: 0px 0px 10px 2px lemonchiffon;
+    text-shadow: 0px 0px 10px lemonchiffon;
+    transition: all 0.3s ease;
+}
+.bookmark-container li > button:hover {
+    box-shadow: 0px 0px 15px 4px lemonchiffon;
+    text-shadow: 0px 0px 20px lemonchiffon;
+  }
+  .bookmark-container li > button:hover a {
+    color: rgb(255,220,40);
+
+  }
+.bookmark-container a{
+    text-decoration: none;
+    color: white;
+}
+
+
+.bookmark-container button{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: lemonchiffon;
+}
+.bookmark-container button:active{
+    outline: none;
+}
+.bookmark-container button:hover p{
+    outline: none;
+    color: rgb(255,220,40);
+    text-shadow: 0px 0px 20px rgb(255,220,40);
+
+}
+.bookmark-container p{
+    color: white;
+    text-shadow: 0px 0px 10px white;
+
+    margin: 0;
+    font-size: small;
+}
 .modal-backdrop{
     position: fixed;
     top: 0;
@@ -19,13 +74,10 @@
     transform: translate(-50%, -50%);
     z-index: 3;
     background-color: white;
-    /* padding: 5%;
-     */
      width: 100%;
      min-height: 280px;
      max-width: 40rem;
      padding: 1rem 3rem 3rem 3rem;
-
     border-radius: 20px;
     color: black;
     display: flex;
@@ -57,7 +109,6 @@
 .bookmark-container .modal-container button{
     width: 30%;
     scale: 0.9;
-    /* margin-top: 20px; */
     margin : 20px auto 0 auto;
     color: black;
     transform: rotate(4deg);
@@ -87,20 +138,4 @@
     padding: 0.5rem 2rem;
     border-radius: 5px;
     border: 2px solid hsl(198, 1%, 29%);
-}
-
-.bookmark-container button{
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: lemonchiffon;
-}
-.bookmark-container button:active{
-    outline: none;
-}
-.bookmark-container p{
-    color: white;
-    margin: 0;
-    font-size: small;
 }
