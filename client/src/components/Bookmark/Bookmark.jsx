@@ -4,6 +4,8 @@ import "./Bookmark.css";
 const Bookmark = () => {
     const [bookmarks, setBookmarks] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [showModal2, setShowModal2] = useState(false);
+    const [selectedIndex, setSelectedIndex] = useState(-1);
     const [name, setName] = useState("");
     const [url, setUrl] = useState("");
 
@@ -18,6 +20,7 @@ useEffect(() => {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }, [bookmarks]);
 
+  // 바로가기 추가
     const AddBookmark = (e) => {
       e.preventDefault();
       if (!name.trim() || !url.trim()) {
@@ -28,6 +31,32 @@ useEffect(() => {
         setBookmarks([...bookmarks, bookmark]);
         setShowModal(false);
       };
+
+  
+    // 바로가기 수정
+    const UpdateBookmark = (e) => {
+      e.preventDefault();
+      if (!name.trim() && !url.trim()) {
+        alert('수정사항이 없습니다.');
+        setShowModal2(false);
+        return;
+      }else if(!name.trim() || !url.trim()){
+        alert('이름과 주소 모두 입력해주세요.')
+        return;
+      }
+      const newBookmarks = [...bookmarks];
+      newBookmarks[selectedIndex] = { name, url };
+      setBookmarks(newBookmarks);
+      setShowModal2(false);
+    };
+    //바로가기 삭제
+    const DeleteBookmark = (e) => {
+      e.preventDefault();
+      const newBookmarks = bookmarks.filter((bookmark, index) => index !== selectedIndex);
+      setBookmarks(newBookmarks);
+      setShowModal2(false);
+    };
+    //바로가기 추가 제한
     const handleAddButton = ()=>{
       if (bookmarks.length >= 5) {
         setShowModal(false);
@@ -44,12 +73,30 @@ useEffect(() => {
       <p>바로가기 추가</p>
       </button>
       <ul>
-        {bookmarks.map(bookmark => (
+        {bookmarks.map((bookmark, index) => (
           <li key={bookmark.url}>
             <button><a href={bookmark.url}>{bookmark.name}</a></button>
+            <button onClick={() => { setShowModal2(true); setSelectedIndex(index); }}>수정/삭제</button>
           </li>
         ))}
       </ul>
+      {showModal2 && (
+  <div className='modal-container'>
+    <h3>바로가기 수정/삭제</h3>
+    <label>바로가기 이름</label>
+    <input placeholder={bookmarks[selectedIndex].name} value={name} onChange={e => setName(e.target.value)} autoFocus/>
+    <label>바로가기 주소</label>
+    <input placeholder={bookmarks[selectedIndex].url} value={url} onChange={e => setUrl(e.target.value)}/>
+    <div className="button-container">
+      <button onClick={UpdateBookmark}>
+        <span>수정</span></button>
+      <button onClick={DeleteBookmark}>
+        <span>삭제</span></button>
+      <button onClick={()=>{setShowModal2(false)}}>
+        <span>취소</span></button>
+    </div>
+  </div>
+)}
       {showModal && (
         <div className='modal-container'>
             <h3>바로가기 추가</h3>
