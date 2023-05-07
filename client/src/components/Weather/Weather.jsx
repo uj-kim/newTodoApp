@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import "./Weather.css";
 
 const Weather = () => {
     const [weather, setWeather] = useState(null);
+    const [airpollution, SetAirpollution]= useState(null);
     useEffect(() => {
         const fetchWeather = async () => {
           const response = await axios.get(
@@ -18,7 +20,24 @@ const Weather = () => {
             }
           );
         };
+        const fetchAirPollution = async () => {
+            const response = await axios.get(
+              "https://api.openweathermap.org/data/2.5/air_pollution?lat=37.5666791&lon=126.9782914&appid=51bff0e1fc5a8abf047d9b8c7c7234ea"
+            );
+            console.log(response.data.list[0].components.pm10);
+            const dust = response.data.list[0].components.pm10;
+            if (dust <=40)
+            {SetAirpollution(`미세먼지 좋음 (${dust}μg/m³)`)}
+            else if(dust <= 50){
+                SetAirpollution(`미세먼지 보통 (${dust}μg/m³)`)
+            }
+            else{
+                SetAirpollution("`미세먼지 나쁨 (${dust}μg/m³)`")
+            }
+            
+          };
         fetchWeather();
+        fetchAirPollution();
     }, []);
     console.log(weather);
 
@@ -26,11 +45,15 @@ const Weather = () => {
     <div className='weather-container'>
      {weather && (
         <div>
-          <p>오늘의 날씨: {weather.currentWeather}</p>
-          <p>현재 온도: {weather.temp}°C</p>
+          <p>{weather.temp}°C , {weather.currentWeather}</p>
+        </div>
+      )}
+        {airpollution && (
+            <div>
+        <p>{airpollution}</p>
         </div>
       )}</div>
   )
 }
 
-export default Weather
+export default Weather;

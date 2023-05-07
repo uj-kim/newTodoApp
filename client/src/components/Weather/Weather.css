@@ -1,0 +1,9 @@
+.weather-container{
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    font-weight: 600;
+}
+.weather-container p{
+    margin: 0;
+}
