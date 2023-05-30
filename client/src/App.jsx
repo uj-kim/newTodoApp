@@ -1,8 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Mainpage from "./pages/Mainpage/Mainpage";
-// import Calendar from "./pages/Calendar/Calendar";
-// import Dashboard from "./pages/Dashboard/Dashboard";
 
 const App = () => {
   return (

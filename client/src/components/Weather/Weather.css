@@ -1,8 +1,8 @@
 .weather-container{
     display: flex;
     flex-direction: column;
-    font-size: small;
-    font-weight: 600;
+    font-size: medium;
+    font-weight: 500;
 }
 .weather-container p{
     margin: 0;

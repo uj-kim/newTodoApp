@@ -23,7 +23,7 @@
   border: none;
   transform: rotate(4deg);
   transform-origin: center;
-  /* font-family: "Gochi Hand", cursive; */
+  font-family: "LeeSeoyun";
   text-decoration: none;
   padding-bottom: 1px;
   border-radius: 5px;
@@ -67,7 +67,7 @@
   border-bottom-left-radius: 3px 15px;
   border: solid 3px transparent;
   border-bottom: dashed 3px #ea95e0;
-  /* font-family: "KyoboHand", "Gochi Hand", cursive; */
+  font-family: "LeeSeoyun";
   font-size: 1rem;
   color: hsla(260, 2%, 25%, 0.7);
   caret-color: #a39bd2;
@@ -95,14 +95,12 @@
   box-sizing: border-box;
   background-color: transparent;
   padding: 0.7rem;
-
   border: solid 3px transparent;
   border-bottom: dashed 3px #ea95e0;
-  /* font-family: "KyoboHand", "Gochi Hand", cursive; */
-  font-size: 0.9rem;
+  font-family: "LeeSeoyun";
+  font-size: 1rem;
   color: hsla(260, 2%, 25%, 0.7);
   width: 50%;
-  /* margin-bottom: 20px; */
 }
 
 .Todo input:nth-child(2):focus {
