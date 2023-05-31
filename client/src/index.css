@@ -29,7 +29,6 @@ body {
 #dashboard {
   height: 100vh;
   width: 100vw;
-  /* background-color: var(--purple); */
   background-image: linear-gradient(to bottom right, var(--purple), #936fc5);
   color: white;
   font-family: "Public Sans", "LeeSeoyun", sans-serif;
@@ -46,7 +45,6 @@ body {
   background-image: linear-gradient(to top right, #968cd2, #936fc5);
   border-radius: 50%;
   position: absolute;
-  /* z-index: -1; */
 }
 .small {
   top: 200px;
@@ -69,28 +67,6 @@ body {
   width: 400px;
   height: 400px;
 }
-
-/* .gradient-red {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background: #ff5d5d;
-  filter: blur(90px);
-}
-.gradient-orange {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background: var(--orange);
-  filter: blur(90px);
-}
-.gradient-blue {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background: #5dc9ff;
-  filter: blur(90px);
-} */
 
 .grey-container {
   border-top: 0.3px solid rgba(255, 255, 255, 0.185);

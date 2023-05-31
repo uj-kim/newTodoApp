@@ -32,7 +32,7 @@ const Weather = () => {
                 SetAirpollution(`미세먼지 보통 (${dust}μg/m³)`)
             }
             else{
-                SetAirpollution("`미세먼지 나쁨 (${dust}μg/m³)`")
+                SetAirpollution(`미세먼지 나쁨 (${dust}μg/m³)`)
             }
             
           };
