@@ -80,6 +80,7 @@ useEffect(() => {
           </li>
         ))}
       </ul>
+      {/* 바로가기 수정/삭제 모달 대화상자 */}
       {showModal2 && (
   <div className='modal-container'>
     <h3>바로가기 수정/삭제</h3>
@@ -97,6 +98,7 @@ useEffect(() => {
     </div>
   </div>
 )}
+{/* 바로가기 추가 모달 대화상자 */}
       {showModal && (
         <div className='modal-container'>
             <h3>바로가기 추가</h3>
@@ -112,6 +114,7 @@ useEffect(() => {
             </div>
         </div>
       )}
+      {/* 모달창 외 영역 배경 어둡게 */}
       {showModal&&<div className='modal-backdrop'></div>}
     </div>
   )

@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import moment from "moment";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import timeGridPlugin from "@fullcalendar/timegrid";
 import "./Calendar.css";
-import useCalendar from "../../store/Calendar";
 
 const Calendar = (props) => {
+  // todo를 event로 설정
   const [events, setEvents] = useState([props.todoItems, props.setTodoItems]);
 
-//todo 있는 날짜 표시
+//날짜에 todo 표시
 useEffect(() => {
   const getTodoList = async () => {
     const response = await axios.get("http://localhost:8080/alltodos");
@@ -36,14 +34,15 @@ useEffect(() => {
 }, [props.todoItems]);
 
   return (
+    // 월간달력
     <div className="calendar-container">
       <div>
       <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin]}
           headerToolbar={{
-            left: "prev,next",
-            center: "title",
-            right: "today",
+            left: "prev,next", //왼쪽 -> 이전달, 다음달
+            center: "title", // 중앙 -> 이번달
+            right: "today", // 오른쪽 -> 오늘날짜로 이동
           }}
           initialView="dayGridMonth"
           slotDuration={"01:00:00"}

@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "../../components/Calendar/Calendar";
 import css from "./Mainpage.module.css";
-// import TodoList from "../../components/Todo/TodoList";
 import AddTodo from "../../store/AddTodo";
 import Todo from "../../store/Todo";
 import "../../components/Todo/TodoList.css";
@@ -13,6 +12,7 @@ const Mainpage = () => {
   const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
 
 useEffect(()=>{
+  // 해당 날짜에 대한 todo 정보 불러오기
   const getTodoList = async () => {
     const response = await axios.get("http://localhost:8080/todos", {
       params: {
@@ -52,13 +52,10 @@ const handleDateSelect = (selectInfo) => {
         <Calendar handleDateSelect={handleDateSelect} todoItems={todoItems} setTodoItems={setTodoItems}/>
       </div>
       <div className={css.todo}>
-        {/* <TodoList todoItems={todoItems} setTodoItems={setTodoItems} />
-         */}
           <div className="todo-container">
       <div className="heading">
         <h2>To-Do List</h2>
       </div>
-      {/* <label htmlFor="todo">~오늘 해야 할 일 ~</label> */}
       <AddTodo addItem={addItem} selectedDate={selectedDate}/>
       <div className="written-todos">🚀 {todoItems.length} Todos</div>
       {todoItems.length > 0 ? (

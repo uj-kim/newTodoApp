@@ -6,12 +6,12 @@ const Weather = () => {
     const [weather, setWeather] = useState(null);
     const [airpollution, SetAirpollution]= useState(null);
     useEffect(() => {
+      //openweathermap api를 이용해서 날짜 정보 가져오기
         const fetchWeather = async () => {
           const response = await axios.get(
             "https://api.openweathermap.org/data/2.5/weather?lat=37.5666791&lon=126.9782914&appid=51bff0e1fc5a8abf047d9b8c7c7234ea&lang=kr"
             
           );
-          console.log(response.data);
           const celsius = response.data.main.temp - 273.15; //절대온도를 섭씨로 변환
           setWeather(
             {
@@ -20,11 +20,11 @@ const Weather = () => {
             }
           );
         };
+        // 미세먼지 농도
         const fetchAirPollution = async () => {
             const response = await axios.get(
               "https://api.openweathermap.org/data/2.5/air_pollution?lat=37.5666791&lon=126.9782914&appid=51bff0e1fc5a8abf047d9b8c7c7234ea"
             );
-            console.log(response.data.list[0].components.pm10);
             const dust = response.data.list[0].components.pm10;
             if (dust <=40)
             {SetAirpollution(`미세먼지 좋음 (${dust}μg/m³)`)}
@@ -39,7 +39,6 @@ const Weather = () => {
         fetchWeather();
         fetchAirPollution();
     }, []);
-    console.log(weather);
 
   return (
     <div className='weather-container'>

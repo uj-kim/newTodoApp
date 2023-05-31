@@ -35,7 +35,6 @@ const AddTodo = (props) => {
         onKeyPress={onEnterKey}
         required
       />
-      {/* <button onClick={onButtonClick}> */}
       <button type="submit">
         <span>ADD</span>
       </button>

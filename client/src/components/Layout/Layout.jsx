@@ -3,7 +3,6 @@ import "moment/locale/ko";
 import { Outlet, useLocation } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import css from "./Layout.module.css";
-import { BiSearch } from "react-icons/bi";
 import Bookmark from "../Bookmark/Bookmark";
 import Weather from "../Weather/Weather";
 
@@ -23,15 +22,11 @@ const Layout = () => {
           {/* 프로필 */}
           <div className={css.profile}>
             <div className={css.details}>
-              {/* <span>안녕하세요,</span>
-              <span>한순영님!</span> */}
               <Weather />
             </div>
           </div>
-          {/* 검색창(검색기능) */}
-          <div className={css.searchBar}>
-            {/* <BiSearch size={20} />
-            <input type="text" placeholder="Search" /> */}
+          {/* 바로가기  기능*/}
+          <div className={css.bookmarks}>
             <Bookmark />
           </div>
           {/* 날짜 */}

@@ -14,7 +14,6 @@
   left: 0;
   right: 0;
   height: 100vh;
-  /* overflow: hidden; */
   z-index: -1;
 }
 
@@ -33,7 +32,7 @@
 .header > :nth-child(1) {
   font-size: 1rem;
 }
-.searchBar {
+.bookmarks {
   width: 30%;
   max-width: 25rem;
   padding: 1rem 1rem;
@@ -44,7 +43,7 @@
   justify-content: center;
 }
 
-.searchBar > input {
+.bookmarks > input {
   background: transparent;
   color: white;
   outline: none;
@@ -59,22 +58,10 @@
   align-items: center;
   justify-content: center;
 }
-/* .details {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-} */
 
 .content {
   margin: auto;
   display: flex;
   height: calc(100vh - 120px);
   width: 100%;
-  /* align-items: center; */
-  /* margin-top: 120px; */
 }
-/* .content > div {
-  width: 100%;
-  min-width: 75vh;
-  display: flex;
-} */
