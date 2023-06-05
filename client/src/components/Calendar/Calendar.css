@@ -30,6 +30,12 @@ margin-top: 0px;
 .fc .fc-timegrid-slot {
   height: 2.5em !important;
 }
+.fc-popover-header{
+  color: #494a4b;
+}
+.fc-popover-body{
+  color: rgb(100, 100, 100);
+}
 .fc table {
   font-size: 0.9em;
 }
