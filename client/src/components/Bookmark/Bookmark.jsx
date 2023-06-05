@@ -29,6 +29,8 @@ useEffect(() => {
       }
         const bookmark = { name, url };
         setBookmarks([...bookmarks, bookmark]);
+        setName('');
+        setUrl('');
         setShowModal(false);
       };
 
@@ -109,7 +111,7 @@ useEffect(() => {
           <div className="button-container">
           <button onClick={AddBookmark}>
             <span>완료</span></button>
-          <button onClick={()=>{setShowModal(false)}}>
+          <button onClick={()=>{setShowModal(false); setName(''); setUrl('');}}>
             <span>취소</span></button>
             </div>
         </div>
