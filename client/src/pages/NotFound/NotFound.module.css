@@ -1,0 +1,23 @@
+.container{
+    height: 90vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 2rem;
+}
+.link a{
+    animation: blink-animation 1s infinite;
+    opacity: 0.8;
+}
+@keyframes blink-animation{
+    0%{
+        color: blueviolet;
+    }
+    50%{
+        color: lemonchiffon;
+    }
+    100%{
+        color: blueviolet;
+    }
+}
