@@ -31,6 +31,7 @@ const AddTodo = (props) => {
         type="text"
         placeholder="어떤 일을 하면 좋을까요?"
         value={inputValue}
+        autoComplete="off"
         onChange={handleInputChange}
         onKeyPress={onEnterKey}
         required

@@ -56,6 +56,7 @@ const Todo = ({ item, updateItem, delItem }) => {
           id="todobox"
           type="text"
           value={todoItem.title}
+          autoComplete="off"
           onChange={editEventHandler}
           onKeyPress={onEnterKey}
           readOnly={isreadOnly}
