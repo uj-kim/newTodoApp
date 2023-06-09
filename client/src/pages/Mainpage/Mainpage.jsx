@@ -34,10 +34,15 @@ const handleDateSelect = (selectInfo) => {
       const response = await axios.post("http://localhost:8080/todo", {newItem});
       setTodoItems([...todoItems, response.data]);
     }
-    //todo 수정
+     //todo 수정
     const updateItem = async(targetItem) => {
-      console.log(targetItem);
       await axios.patch(`http://localhost:8080/todo/${targetItem.id}`, targetItem);
+      const result = await axios.get("http://localhost:8080/todos", {
+        params: {
+          date : selectedDate,
+        }
+      });
+      setTodoItems(result.data);
     };
   
     //todo 삭제
