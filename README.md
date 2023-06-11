@@ -86,7 +86,7 @@ Stay organized, save time, and stay informed throughout your day, all from the c
          <li> In the 'client' directory, run the following command : 
            <pre><code> npm start </code></pre>
          </li>
-         <li> You can also reate a production build of the client, run the following command:
+         <li> You can also create a production build of the client, run the following command:
            <ol>
              <li><pre><code> npm run build </code></pre></li>
              <li><pre><code> serve -s build </code></pre</li>
