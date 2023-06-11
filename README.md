@@ -120,7 +120,7 @@ Stay organized, save time, and stay informed throughout your day, all from the c
 <a href="https://github.com/uj-kim">
   <img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=github&logoColor=white" />
 </a>
-<a>
+<a href="mailto:ninakyj@gmail.com">
   <img src="https://img.shields.io/badge/Gmail-EA4335?style=flat-square&logo=gmail&logoColor=white" />
 </a>
 <a href="https://www.notion.so/uorez/33acf2e45174409abf9e4915c88452df?pvs=4">
