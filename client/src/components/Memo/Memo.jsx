@@ -6,14 +6,14 @@ const Memo = () => {
     const handleMemoChange = (e) =>{
       setMemoText(e.target.value);
     };
-    // 메모 전체 삭제
+    // 메모 전체 삭제 (Clear memo)
     const handleMemoClear = () => {
       localStorage.removeItem('memo');
       setMemoText("");
     };
     useEffect(()=>{
       function handleKeyUp() {
-        localStorage.setItem('memo', memoText); // 로컬스토리지 memo에 텍스트 저장
+        localStorage.setItem('memo', memoText); // 로컬스토리지 memo에 텍스트 저장(save what you typing)
       }
   
       document.addEventListener('keyup', handleKeyUp);

@@ -29,7 +29,7 @@ const AddTodo = (props) => {
       <input
         id="addbox"
         type="text"
-        placeholder="어떤 일을 하면 좋을까요?"
+        placeholder="어떤 일을 하면 좋을까요?" //what should I do?
         value={inputValue}
         autoComplete="off"
         onChange={handleInputChange}

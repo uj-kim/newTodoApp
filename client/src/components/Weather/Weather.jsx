@@ -6,10 +6,13 @@ const Weather = () => {
     const [weather, setWeather] = useState(null);
     const [airpollution, SetAirpollution]= useState(null);
     useEffect(() => {
-      //openweathermap api를 이용해서 날짜 정보 가져오기
+      //openweathermap api를 이용해서 날짜 정보 가져오기(get weather info)
         const fetchWeather = async () => {
           const response = await axios.get(
-            "https://api.openweathermap.org/data/2.5/weather?lat=37.5666791&lon=126.9782914&appid=51bff0e1fc5a8abf047d9b8c7c7234ea&lang=kr"
+            //update OpenWeaterMap API
+            // you need API key, geocodes(lat & lon) of your location and to set language option.
+            "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}&lang={language}"
+            
             
           );
           const celsius = response.data.main.temp - 273.15; //절대온도를 섭씨로 변환
@@ -20,19 +23,21 @@ const Weather = () => {
             }
           );
         };
-        // 미세먼지 농도
+        // 미세먼지 농도(Get AirPollution info)
         const fetchAirPollution = async () => {
             const response = await axios.get(
-              "https://api.openweathermap.org/data/2.5/air_pollution?lat=37.5666791&lon=126.9782914&appid=51bff0e1fc5a8abf047d9b8c7c7234ea"
+            //update OpenWeaterMap API
+            // you need API key, geocodes(lat & lon) of your location and to set language option.
+              "https://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API key}"
             );
             const dust = response.data.list[0].components.pm10;
             if (dust <=40)
-            {SetAirpollution(`미세먼지 좋음 (${dust}μg/m³)`)}
+            {SetAirpollution(`미세먼지 좋음 (${dust}μg/m³)`)} // Good
             else if(dust <= 50){
-                SetAirpollution(`미세먼지 보통 (${dust}μg/m³)`)
+                SetAirpollution(`미세먼지 보통 (${dust}μg/m³)`) // Normal
             }
             else{
-                SetAirpollution(`미세먼지 나쁨 (${dust}μg/m³)`)
+                SetAirpollution(`미세먼지 나쁨 (${dust}μg/m³)`) // Bad
             }
             
           };
