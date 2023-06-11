@@ -112,5 +112,20 @@ Stay organized, save time, and stay informed throughout your day, all from the c
           </ul>
   </li>
   </ol>
-   
+  <br />
+<!--  Contact  -->
+<h2>Contact</h2>
+<img src="https://github.com/uj-kim/newTodoApp/assets/67899735/40c95479-1202-4bc1-a241-e42de46b2655" width="200" height="200"/>
+<div>
+<a href="https://github.com/uj-kim">
+  <img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=github&logoColor=white" />
+</a>
+<a>
+  <img src="https://img.shields.io/badge/Gmail-EA4335?style=flat-square&logo=gmail&logoColor=white" />
+</a>
+<a href="https://www.notion.so/uorez/33acf2e45174409abf9e4915c88452df?pvs=4">
+  <img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=notion&logoColor=white" />
+</a>
+</div>
+
  
