@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=a39bd2&height=300&section=header&text=⭐Todo%20Start%20Page⭐&fontSize=55&fontColor=fffacd" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=a39bd2&height=300&section=header&text=⭐Todo%20Start%20Page⭐&fontSize=55&fontColor=fffacd&desc=This%20is%20for%20Chrome%20start%20page&descSize=15" />
 </div>
 <!-- index -->
 
