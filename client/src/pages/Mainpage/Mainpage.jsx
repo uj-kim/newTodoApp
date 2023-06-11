@@ -75,7 +75,7 @@ const handleDateSelect = (selectInfo) => {
           );
         })
       ) : (
-        <p>할 일이 없습니다.</p>
+        <p>할 일이 없습니다.</p>  // ..There's nothing to do..
       )}
     </div>
       <Memo />

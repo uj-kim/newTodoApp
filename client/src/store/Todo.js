@@ -63,6 +63,7 @@ const Todo = ({ item, updateItem, delItem }) => {
           onFocus={offReadOnlyMode}
           onBlur={() => setReadOnly(true)}
         />
+        {/* Delete Button */}
         <button onClick={delClick}>
           <span>삭제하기</span>
         </button>
